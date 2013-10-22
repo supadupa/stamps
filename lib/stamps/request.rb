@@ -13,7 +13,7 @@ module Stamps
         globals.endpoint self.endpoint
         globals.namespace self.namespace
         globals.namespaces("xmlns:tns" => self.namespace)
-        globals.log false
+        globals.log self.test_mode ? true : false
         globals.logger Logger.new(STDOUT)
         globals.raise_errors false
         globals.headers({ "SoapAction" => formatted_soap_action(web_method) })
