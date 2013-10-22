@@ -21,14 +21,14 @@ class StampTest < Test::Unit::TestCase
           },
           :to => {:full_name => 'Matt Sears'},
           :customs => {
-            :customs_lines => [
-              :custom => {
+            :customs_lines => {
+              :custom => [{
                 :description => 'Tee Shirt',
                 :quantity    => 1,
                 :weight_oz   => '7.8',
                 :value       => 18.00
-              }
-            ]
+              }]
+            }
           })
       end
 
@@ -67,7 +67,7 @@ class StampTest < Test::Unit::TestCase
 
       setup do
         stub_post('TrackShipment')
-        @track = Stamps.track('342343243243')
+        @track = Stamps.track(stamps_transaction_id: '342343243243')
       end
 
       should 'return an list of tracking events' do
