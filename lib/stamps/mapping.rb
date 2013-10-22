@@ -248,8 +248,10 @@ module Stamps
     end
 
     class TrackShipment < Hashie::Trash
-      property :Authenticator, :from => :authenticator
-      property :StampsTxID,    :from => :stamps_transaction_id
+      property :Authenticator,  :from => :authenticator
+      property :StampsTxID,     :from => :stamps_transaction_id
+      property :TrackingNumber, :from => :tracking_number
+      
     end
 
   end
