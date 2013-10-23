@@ -155,6 +155,7 @@ module Stamps
       property :Company,       :from => :company
       property :Address1,      :from => :address1
       property :Address2,      :from => :address2
+      property :Address3,      :from => :address3
       property :City,          :from => :city
       property :State,         :from => :state
       property :ZIPCode,       :from => :zip_code
