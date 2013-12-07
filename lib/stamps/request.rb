@@ -20,6 +20,7 @@ module Stamps
         globals.element_form_default :qualified
         globals.namespace_identifier :tns
         globals.ssl_version :SSLv3
+        globals.ssl_ca_cert_file '/etc/ssl/certs/ca-certificates.crt'
       end
 
       response = client.call(web_method, :message => params.to_hash)
