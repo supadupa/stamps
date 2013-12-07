@@ -22,8 +22,6 @@ module Stamps
         globals.ssl_version :SSLv3
       end
 
-      HTTPI.adapter = :net_http
-
       response = client.call(web_method, :message => params.to_hash)
 
       Stamps::Response.new(response).to_hash
