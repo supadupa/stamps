@@ -19,6 +19,7 @@ module Stamps
         globals.headers({ "SoapAction" => formatted_soap_action(web_method) })
         globals.element_form_default :qualified
         globals.namespace_identifier :tns
+        globals.ssl_version :SSLv3
       end
 
       response = client.call(web_method, :message => params.to_hash)
