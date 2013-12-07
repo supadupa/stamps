@@ -54,8 +54,8 @@ module Stamps
       'US-A-SC'    => 'USPS Signature Confirmation',
       'US-A-SH'    => 'Special Handling',
       'US-A-NND'   => 'Notice of non-delivery',
-      'US-A-SR'    => 'Unknow Service Name SR',
-      'US-A-RRE'   => 'Unknow Service Name RRE'
+      'US-A-SR'    => 'Signature Required',
+      'US-A-RRE'   => 'Electronic Return Receipt'
     }
 
     CARRIER_PICKUP_LOCATION = {
