@@ -165,6 +165,7 @@ module Stamps
       property :Company,       :from => :company
       property :Address1,      :from => :address1
       property :Address2,      :from => :address2
+      property :Address3,      :from => :address3
       property :City,          :from => :city
       property :State,         :from => :state
       property :ZIPCode,       :from => :zip_code
@@ -237,15 +238,14 @@ module Stamps
 
       # Maps :customs CustomsLine map
       def customs_lines=(customs)
-        # Important:  Must call to_hash to force re-ordering!
-        self[:CustomsLines] = customs.collect{ |val| CustomsLinesArray.new(val).to_hash }
+        self[:CustomsLines] = CustomsLinesArray.new(:custom => customs[:custom])
       end
     end
 
     class CustomsLinesArray < Hashie::Trash
       property :CustomsLine,     :from => :custom
-      def custom=(val)
-        self[:CustomsLine] = CustomsLine.new(val).to_hash
+      def custom=(vals)
+        self[:CustomsLine] = vals.map { |value| CustomsLine.new(value).to_hash }
       end
     end
 
@@ -260,8 +260,10 @@ module Stamps
     end
 
     class TrackShipment < Hashie::Trash
-      property :Authenticator, :from => :authenticator
-      property :StampsTxID,    :from => :stamps_transaction_id
+      property :Authenticator,  :from => :authenticator
+      property :StampsTxID,     :from => :stamps_transaction_id
+      property :TrackingNumber, :from => :tracking_number
+      
     end
 
   end
