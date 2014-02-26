@@ -13,7 +13,8 @@ module Stamps
       :test_mode,
       :raise_errors,
       :log_messages,
-      :endpoint].freeze
+      :endpoint,
+      :ca_cert_file].freeze
 
     # The endpoint that will be used to connect if none is set
     DEFAULT_ENDPOINT = 'https://swsim.stamps.com/swsim/swsimv29.asmx'.freeze

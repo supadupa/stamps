@@ -20,12 +20,18 @@ module Stamps
         globals.element_form_default :qualified
         globals.namespace_identifier :tns
         globals.ssl_version :SSLv3
-        globals.ssl_ca_cert_file '/etc/ssl/certs/ca-certificates.crt'
+        globals.ssl_ca_cert_file local_ca_certs_file
       end
 
       response = client.call(web_method, :message => params.to_hash)
 
       Stamps::Response.new(response).to_hash
+    end
+
+    # We'll bundle up our own cacerts bundle here to avoid platform-specific
+    # paths to the CA cert bundle. This one was taken from my ubuntu install...
+    def local_ca_certs_file
+      File.dirname(__FILE__) + '/../certs/cacert.pem'
     end
 
     # Get the Authenticator token. By using an Authenticator, the integration
