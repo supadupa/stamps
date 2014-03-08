@@ -17,14 +17,16 @@ module Stamps
       #
       def purchase_postage(params = {})
         params[:authenticator] = authenticator_token
+        params[:transaction_id] = UUID.new unless params[:transaction_id]
         response = request('PurchasePostage', Stamps::Mapping::PurchasePostage.new(params))
         response[:errors].empty? ? response[:purchase_postage_response] : response
       end
-      
-      # check the payment of purchase_pastage 
+
+      # check the payment of purchase_pastage
       #
       def get_purchase_status(params = {})
         params[:authenticator] = authenticator_token
+        params[:transaction_id] = UUID.new unless params[:transaction_id]
         response = request('GetPurchaseStatuee', Stamps::Mapping::GetPurchaseStatus.new(params))
         response[:errors].empty? ? response[:purchase_postage_response] : response
       end

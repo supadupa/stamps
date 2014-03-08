@@ -29,6 +29,7 @@ module Stamps
       def create!(params = {})
         params[:authenticator] = authenticator_token unless params[:authenticator]
         params[:from] ||= Hash.new
+        params[:transaction_id] = UUID.new unless params[:transaction_id]
         response = request('CreateIndicium', Stamps::Mapping::Stamp.new(params))
         response[:errors].empty? ? response[:create_indicium_response] : response
       end
