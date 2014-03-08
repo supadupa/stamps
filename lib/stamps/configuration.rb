@@ -13,6 +13,7 @@ module Stamps
       :test_mode,
       :raise_errors,
       :log_messages,
+      :logger,
       :endpoint,
       :open_timeout,
       :read_timeout,
@@ -69,6 +70,7 @@ module Stamps
       self.raise_errors = DEFAULT_RAISE_ERRORS
       self.open_timeout = 30
       self.read_timeout = 30
+      self.logger       = Logger.new(STDOUT)
     end
   end
 end

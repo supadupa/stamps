@@ -14,7 +14,7 @@ module Stamps
         globals.namespace self.namespace
         globals.namespaces("xmlns:tns" => self.namespace)
         globals.log self.test_mode ? true : false
-        globals.logger Logger.new(STDOUT)
+        globals.logger self.logger
         globals.raise_errors false
         globals.headers({ "SoapAction" => formatted_soap_action(web_method) })
         globals.element_form_default :qualified
