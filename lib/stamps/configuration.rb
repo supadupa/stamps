@@ -14,6 +14,8 @@ module Stamps
       :raise_errors,
       :log_messages,
       :endpoint,
+      :open_timeout,
+      :read_timeout,
       :ca_cert_file].freeze
 
     # The endpoint that will be used to connect if none is set
@@ -65,6 +67,8 @@ module Stamps
       self.format       = DEFAULT_FORMAT
       self.log_messages = DEFAULT_LOG_MESSAGES
       self.raise_errors = DEFAULT_RAISE_ERRORS
+      self.open_timeout = 30
+      self.read_timeout = 30
     end
   end
 end

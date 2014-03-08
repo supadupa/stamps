@@ -21,6 +21,8 @@ module Stamps
         globals.namespace_identifier :tns
         globals.ssl_version :SSLv3
         globals.ssl_ca_cert_file local_ca_certs_file
+        globals.open_timeout self.open_timeout
+        globals.read_timeout self.read_timeout
       end
 
       response = client.call(web_method, :message => params.to_hash)
