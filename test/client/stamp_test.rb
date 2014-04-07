@@ -41,6 +41,10 @@ class StampTest < Test::Unit::TestCase
         assert_equal '10.00',  @stamp[:postage_balance][:control_total]
       end
 
+      should 'return the amount that the stamp cost' do
+        assert_equal '2.07', @stamp[:rate][:amount]
+      end
+
     end
   end
 
