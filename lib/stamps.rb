@@ -5,7 +5,6 @@ require 'stamps/api'
 require 'stamps/mapping'
 require 'stamps/types'
 require 'stamps/client'
-require 'uuid'
 
 module Stamps
   extend Configuration
