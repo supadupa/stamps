@@ -17,7 +17,7 @@ module Stamps
       #
       def purchase_postage(params = {})
         params[:authenticator] = authenticator_token
-        params[:transaction_id] = UUID.new.generate unless params[:transaction_id]
+        params[:transaction_id] = generate_transaction_id unless params[:transaction_id]
         response = request('PurchasePostage', Stamps::Mapping::PurchasePostage.new(params))
         response[:errors].empty? ? response[:purchase_postage_response] : response
       end
@@ -26,7 +26,7 @@ module Stamps
       #
       def get_purchase_status(params = {})
         params[:authenticator] = authenticator_token
-        params[:transaction_id] = UUID.new.generate unless params[:transaction_id]
+        params[:transaction_id] = generate_transaction_id unless params[:transaction_id]
         response = request('GetPurchaseStatuee', Stamps::Mapping::GetPurchaseStatus.new(params))
         response[:errors].empty? ? response[:purchase_postage_response] : response
       end
@@ -39,7 +39,6 @@ module Stamps
         response = request('CarrierPickup', Stamps::Mapping::CarrierPickup.new(params))
         response[:errors].empty? ?  response[:carrier_pickup_response] : response
       end
-
     end
   end
 end
