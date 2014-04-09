@@ -17,7 +17,6 @@ module Stamps
       #
       def purchase_postage(params = {})
         params[:authenticator] = authenticator_token
-        params[:transaction_id] = generate_transaction_id unless params[:transaction_id]
         response = request('PurchasePostage', Stamps::Mapping::PurchasePostage.new(params))
         response[:errors].empty? ? response[:purchase_postage_response] : response
       end
