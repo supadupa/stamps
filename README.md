@@ -30,6 +30,9 @@ Register for the Stamps.com [Developer
 Program](http://developer.stamps.com/developer) to receive a free
 test account.
 
+Check here for Stamps.com complete list of SOAP operations and spec
+https://swsim.stamps.com/swsim/swsimv31.asmx
+
 Sample Workflow
 ----------
 
