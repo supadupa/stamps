@@ -19,7 +19,7 @@ module Stamps
         globals.headers({ "SoapAction" => formatted_soap_action(web_method) })
         globals.element_form_default :qualified
         globals.namespace_identifier :tns
-        globals.ssl_version :SSLv3
+        # globals.ssl_version :SSLv3
         globals.ssl_ca_cert_file local_ca_certs_file
         globals.open_timeout self.open_timeout
         globals.read_timeout self.read_timeout
